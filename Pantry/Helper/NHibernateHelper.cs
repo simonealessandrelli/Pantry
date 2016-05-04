@@ -24,7 +24,7 @@ namespace Pantry.Helper {
         private static Configuration CreateConfiguration() {
             var configuration = new Configuration();
             configuration.Configure();
-            configuration.AddAssembly(typeof(Units).Assembly);
+            configuration.AddAssembly(typeof(Unit).Assembly);
             return configuration;
         }
         #endregion

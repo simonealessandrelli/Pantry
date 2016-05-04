@@ -6,8 +6,10 @@ namespace Pantry {
         public static void Register(HttpConfiguration config) {
             // Servizi e configurazione dell'API Web
 
-            //Route dell'API Web
+            //Web API Routes
             config.MapHttpAttributeRoutes();
+
+            log4net.Config.XmlConfigurator.Configure();
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

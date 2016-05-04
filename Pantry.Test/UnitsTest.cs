@@ -11,15 +11,15 @@ namespace Pantry.Test {
 
         private static ISessionFactory _sessionFactory;
         private static Configuration _configuration;
-        private static IRepository<Units> _repository;
+        private static IRepository<Unit> _repository;
 
         [ClassInitialize]
         public static void SetUp(TestContext context) {
             _configuration = new Configuration();
             _configuration.Configure();
-            _configuration.AddAssembly(typeof(Units).Assembly);
+            _configuration.AddAssembly(typeof(Unit).Assembly);
             _sessionFactory = _configuration.BuildSessionFactory();
-            _repository = new EntityRepository<Units>();
+            _repository = new EntityRepository<Unit>();
             new SchemaExport(_configuration).Execute(false, true, false);
         }
 
@@ -27,7 +27,8 @@ namespace Pantry.Test {
         public void CanGenerateSchema() {
             var cfg = new Configuration();
             cfg.Configure();
-            cfg.AddAssembly(typeof(Units).Assembly);
+            cfg.AddAssembly(typeof(Unit).Assembly);
+            cfg.AddAssembly(typeof(Category).Assembly);
 
             new SchemaExport(cfg).Execute(false, true, false);
         }
@@ -35,7 +36,7 @@ namespace Pantry.Test {
 
         [TestMethod]
         public void CanAddNewUnit() {
-            var unit = new Units { Name = "gr" };
+            var unit = new Unit { Name = "gr" };
             _repository.Add(unit);
         }
 

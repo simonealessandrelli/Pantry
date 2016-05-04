@@ -2,11 +2,12 @@
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
                    assembly="Pantry"
                    namespace="Pantry.Models">
-  <class name="Units">
+  <class name="Category">
     <id name="Id">
+      <column name="Id" not-null="true" />
       <generator class="identity"/>
     </id>
-    <property name="Name"/>
+    <property name="Name" not-null="true"/>
   </class>
   
 </hibernate-mapping>

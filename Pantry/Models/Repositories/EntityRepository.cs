@@ -40,7 +40,7 @@ namespace Pantry.Models.Repositories {
 
         public T GetByName(string name) {
             using (var session = NHibernateHelper.OpenSession()) {
-                ICriteria cr = session.CreateCriteria(typeof(Units));
+                ICriteria cr = session.CreateCriteria(typeof(Unit));
                 return cr.Add(Expression.Eq("Name", name)).List<T>()[0];
             }
         }
